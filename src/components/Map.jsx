@@ -27,7 +27,7 @@ class Map extends Component {
             lng: -3.991605609526475
           }}
         >
-          {venues.map(
+          {venues && venues.map(
             (venue, idx) => (
               <Marker
                 position={{

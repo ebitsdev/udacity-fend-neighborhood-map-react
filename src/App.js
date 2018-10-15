@@ -35,23 +35,22 @@ class App extends Component {
           }
           // this.renderMap()
         ); // Call the callback function which is the second argument
-        console.log(this.state.venues);
+        console.log(this.state.venueList);
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);
       });
   };
 
-  filterVenueList = filteredVenueList => {
-    this.setState({ venueList: filteredVenueList });
+  venueListFilter = venueList => {
+    this.setState({ venueList });
   };
 
   handleClickedMarker = clickedMarker => {
-
     this.setState({
       marker: clickedMarker
     });
-    console.log(this.state.marker)
+    console.log(this.state.marker);
   };
 
   render() {
@@ -59,8 +58,20 @@ class App extends Component {
       <div role="application" aria-label="map" className="app">
         <Header />
         {/* Spread all children of the state of the app to the map component */}
-        <Map {...this.state} handleClickedMarker={this.handleClickedMarker} clickedMarker={this.state.marker} venueList={this.state.venueList} />
-        <Sidebar {...this.state} />
+        <Map
+
+          venues={this.state.venueList}
+          handleClickedMarker={this.handleClickedMarker}
+          clickedMarker={this.state.marker}
+        />
+        <Sidebar
+
+          venuesAll={this.state.venues}
+          handleClickedMarker={this.handleClickedMarker}
+          clickedMarker={this.state.marker}
+          venueListFilter={this.venueListFilter}
+
+        />
         <Footer />
       </div>
     );
