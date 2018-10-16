@@ -1,12 +1,75 @@
 body {
   font-size: 12pt;
 }
-
-.venue-list-address {
+.app{
+  min-width: 400px;
+}
+.venue-list-address, .venue-listing {
   list-style: none;
+  text-align: left;
+}
 
+.header-container{
+  text-align: center;
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+.footer-container{
+  text-align: center;
+  width: 100%;
 }
 .venue-name{
   font-size: 14px;
   font-weight: 700;
+}
+.search-bar{
+  grid-area: header;
+  // To align input field to the center
+  text-align: center;
+  width: 100% ;
+}
+.search-field {
+  width: 92%;
+  box-sizing: border-box;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('/assets/search-icon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+.venuelist{
+  overflow: scroll;
+  display: block;
+}
+.sidebar-wrapper {
+  grid-area: sidebar;
+  height: 100vh;
+}
+
+.footer-container{
+  grid-area: footer;
+}
+
+.map{
+  // overflow: inherit !important;
+  position: relative;
+  height: 100vh;
+  // width: 78vw;
+  grid-area: main;
+}
+// #map {
+//   grid-area: main;
+// }
+.main-container{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 78vw 1fr;
+  grid-gap: 0.2em;
+  grid-template-areas:
+    // "header header header header"
+    "main main main sidebar"
+    "footer footer footer footer";
 }

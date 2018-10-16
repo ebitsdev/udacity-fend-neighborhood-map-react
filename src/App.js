@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Header from "./views/Header";
+
 import Map from "./components/Map";
+import Places from './components/Places';
 import Sidebar from "./views/Sidebar";
 import Footer from "./views/Footer";
 import "./App.scss";
@@ -15,16 +17,22 @@ class App extends Component {
     this.getVenues();
   }
   // Get restaurant places
+  /**
+   *   lat: 39.077773,
+            lng: -77.071404
+   */
   getVenues = () => {
+    const searchUrl = `https://api.foursquare.com/v2/venues/search?ll=39.077773,-77.071404&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806'`;
     const url = `https://api.foursquare.com/v2/venues/explore?
     query=food
     &intent=browse
-    &near=Abidjan
+    &limit=25
+    &near="Silver Spring, MD"
     &client_id=XWAAQ5HAKM102UYQVVXYDJQBOW0SOKKJGHCN0OYCYH2C5HMN
     &client_secret=K3LRW0CPBGE2WPKXMIDVJAATMYPZSRFL3LZ2UQICLDGUESRF
     &v=20181014`;
     // Use fetch to get data from the server
-    fetch(url)
+    fetch(searchUrl)
       .then(response => response.json())
       .then(data => {
         this.setState(
@@ -54,16 +62,12 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div role="application" aria-label="map" className="app">
-        <Header />
-        {/* Spread all children of the state of the app to the map component */}
-        <Map
 
-          venues={this.state.venueList}
-          handleClickedMarker={this.handleClickedMarker}
-          clickedMarker={this.state.marker}
-        />
+    return (
+
+      <div role="application" aria-label="neighborhood map" className="app">
+        <Header />
+        <div className="main-container">
         <Sidebar
 
           venuesAll={this.state.venues}
@@ -72,6 +76,15 @@ class App extends Component {
           venueListFilter={this.venueListFilter}
 
         />
+        {/* <Places /> */}
+        <Map
+
+          venues={this.state.venueList}
+          handleClickedMarker={this.handleClickedMarker}
+          clickedMarker={this.state.marker}
+        />
+
+        </div>
         <Footer />
       </div>
     );

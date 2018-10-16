@@ -4,9 +4,11 @@ import React from 'react';
 // create a component
 const Header = () => {
     return (
-        <h1 className="header-container">
-        African grocery stores in Silver Spring, MD
+        <div className="header-container">
+        <h1 aria-label="African grocery store in Silver Spring, MD" className="header-item">
+        Listing
         </h1>
+        </div>
     );
 };
 

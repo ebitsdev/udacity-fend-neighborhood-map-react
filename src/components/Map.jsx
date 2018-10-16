@@ -8,6 +8,7 @@ import {
 } from "react-google-maps";
 class Map extends Component {
   render() {
+
     const { venues, marker, handleClickedMarker, clickedMarker } = this.props;
     // const animatevenue = this.props.clickedMarker;
     const style = {
@@ -15,16 +16,20 @@ class Map extends Component {
     };
 
     const styleMap = {
-      height: "600px",
-      width: "100%"
+      height: "100vh",
+      width: "60%"
     };
     const InitMap = withScriptjs(
       withGoogleMap(props => (
+
         <GoogleMap
-          defaultZoom={14}
+          defaultZoom={12}
           defaultCenter={{
-            lat: 5.357640130884583,
-            lng: -3.991605609526475
+            // lat: 51.656489, lng: 0.39032
+            // Silver Spring MD
+            
+            lat: 39.077773,
+            lng: -77.071404
           }}
         >
           {venues && venues.map(
@@ -74,17 +79,16 @@ class Map extends Component {
         </GoogleMap>
       ))
     );
+
     return (
-      <div className="map">
-        <div className="InitMap" role="application">
+
           <InitMap
             googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&v=3.exp"
-            loadingElement={<div style={style} />}
-            containerElement={<div style={styleMap} />}
-            mapElement={<div style={style} />}
+            loadingElement={<div className="map-loading-element"/>}
+            containerElement={<div className="map-container" />}
+            mapElement={<div className="map" />}
           />
-        </div>
-      </div>
+
     );
   }
 }

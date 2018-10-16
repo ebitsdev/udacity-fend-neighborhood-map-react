@@ -6,7 +6,7 @@ const Footer = () => {
     return (
 <footer className="footer-container">
     <h2 className="footer-content" tabIndex={0}>
-    Udacity Nanodegree neighborhood map project by Emmanuel Bamba
+    Neighborhood map project
     </h2>
 </footer>
     );
