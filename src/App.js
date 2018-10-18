@@ -9,10 +9,8 @@ class App extends Component {
   state = {
     venues: [],
     venueList: [],
-    venueId: "",
     errorMessage: "",
     marker: {}
-
   };
   componentDidMount() {
     this.getVenues();
@@ -22,7 +20,7 @@ class App extends Component {
   getVenues = () => {
     // Foursquare api does not work properly with ``, it only does with '' or ""
     const url =
-      "https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1c8941735&intent=browse&near=Silver+Spring&limit=15&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806";
+      "https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1c8941735&intent=browse&near=Silver+Spring&limit=15&radius=4900&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806";
 
     // Use fetch API to get data from the server
     fetch(url)
@@ -30,12 +28,11 @@ class App extends Component {
       .then(data => {
         this.setState({
           // Capture the same data for the venue list and markers identification
-          venueId: data.response.venues,
           venues: data.response.venues,
           venueList: data.response.venues
         });
-
         console.log(this.state.venues);
+
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);

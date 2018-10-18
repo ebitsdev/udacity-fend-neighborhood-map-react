@@ -15,12 +15,10 @@ class Map extends Component {
       withGoogleMap(props => (
 
         <GoogleMap
-          defaultZoom={12}
+          defaultZoom={15}
           defaultCenter={{
-
             // Silver Spring downtown
             lat: 38.996052, lng: -77.028183
-
           }}
         >
           {venues && venues.map(
