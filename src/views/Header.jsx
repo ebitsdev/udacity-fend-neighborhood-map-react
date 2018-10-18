@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className="header-container">
         <h1 aria-label="African grocery store in Silver Spring, MD" className="header-item">
-        Listing
+        African Restaurants in Silver Spring, MD
         </h1>
         </div>
     );

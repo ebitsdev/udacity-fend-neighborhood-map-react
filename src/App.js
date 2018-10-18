@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "./views/Header";
-
 import Map from "./components/Map";
 import Sidebar from "./views/Sidebar";
 import Footer from "./views/Footer";
@@ -10,11 +9,10 @@ class App extends Component {
   state = {
     venues: [],
     venueList: [],
-    venueDetails: [],
     venueId: "",
     errorMessage: "",
-    marker: {},
-    map: undefined
+    marker: {}
+
   };
   componentDidMount() {
     this.getVenues();
@@ -59,7 +57,6 @@ class App extends Component {
     this.setState({
       marker: clickedMarker
     });
-    console.log(this.state.marker);
   };
 
   render() {

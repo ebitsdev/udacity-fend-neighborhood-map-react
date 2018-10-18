@@ -6,7 +6,7 @@ const Footer = () => {
     return (
 <footer className="footer-container">
     <h2 className="footer-content" tabIndex={0}>
-    Neighborhood map project
+    Silver Spring neighborhood map with React, Google Maps and Foursquare APIs
     </h2>
 </footer>
     );
