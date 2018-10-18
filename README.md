@@ -1,8 +1,8 @@
-#Udacity Nanodegree Neighborhood Map Project with React
+# Udacity Nanodegree Neighborhood Map Project with React
 
 This is project is part of the Udacity Nanodegree Scholarship in partnership with Google.
 
-##To run this project
+## To run this project
 
 - Clone this repository
 
@@ -12,7 +12,7 @@ This is project is part of the Udacity Nanodegree Scholarship in partnership wit
 
 - Or simply download the compiled version of the project in the build folder under the project root folder.
 
-##How to contribute to this project
+## How to contribute to this project
 
 - Make a pull request to make your contributions
 
