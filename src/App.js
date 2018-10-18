@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "./views/Header";
 
 import Map from "./components/Map";
-import Places from './components/Places';
 import Sidebar from "./views/Sidebar";
 import Footer from "./views/Footer";
 import "./App.scss";
@@ -11,42 +10,44 @@ class App extends Component {
   state = {
     venues: [],
     venueList: [],
-    marker: {}
+    venueDetails: [],
+    venueId: "",
+    errorMessage: "",
+    marker: {},
+    map: undefined
   };
   componentDidMount() {
     this.getVenues();
   }
-  // Get restaurant places
-  /**
-   *   lat: 39.077773,
-            lng: -77.071404
-   */
+  // Get african restaurant places
+
   getVenues = () => {
-    const searchUrl = `https://api.foursquare.com/v2/venues/search?ll=39.077773,-77.071404&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806'`;
-    const url = `https://api.foursquare.com/v2/venues/explore?
-    query=food
-    &intent=browse
-    &limit=25
-    &near="Silver Spring, MD"
-    &client_id=XWAAQ5HAKM102UYQVVXYDJQBOW0SOKKJGHCN0OYCYH2C5HMN
-    &client_secret=K3LRW0CPBGE2WPKXMIDVJAATMYPZSRFL3LZ2UQICLDGUESRF
-    &v=20181014`;
-    // Use fetch to get data from the server
-    fetch(searchUrl)
+    // Foursquare api does not work properly with ``, it only does with '' or ""
+    const url =
+      "https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1c8941735&intent=browse&near=Silver+Spring&limit=15&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806";
+
+    // Use fetch API to get data from the server
+    fetch(url)
       .then(response => response.json())
       .then(data => {
-        this.setState(
-          {
-            // Capture the same data for the venue list and markers identification
-            venues: data.response.groups[0].items,
-            venueList: data.response.groups[0].items
-          }
-          // this.renderMap()
-        ); // Call the callback function which is the second argument
-        console.log(this.state.venueList);
+        this.setState({
+          // Capture the same data for the venue list and markers identification
+          venueId: data.response.venues,
+          venues: data.response.venues,
+          venueList: data.response.venues
+        });
+
+        console.log(this.state.venues);
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);
+        this.setState({
+          errorMessage: (
+            <div className="error-message">
+              <em>There was an error while fetching the data</em>
+            </div>
+          )
+        });
       });
   };
 
@@ -62,28 +63,22 @@ class App extends Component {
   };
 
   render() {
-
     return (
-
       <div role="application" aria-label="neighborhood map" className="app">
         <Header />
-        <div className="main-container">
-        <Sidebar
-
-          venuesAll={this.state.venues}
-          handleClickedMarker={this.handleClickedMarker}
-          clickedMarker={this.state.marker}
-          venueListFilter={this.venueListFilter}
-
-        />
-        {/* <Places /> */}
-        <Map
-
-          venues={this.state.venueList}
-          handleClickedMarker={this.handleClickedMarker}
-          clickedMarker={this.state.marker}
-        />
-
+        <div id="map" className="main-container">
+          <Sidebar
+            errormessage={this.state.errorMessage}
+            venuesAll={this.state.venues}
+            handleClickedMarker={this.handleClickedMarker}
+            clickedMarker={this.state.marker}
+            venueListFilter={this.venueListFilter}
+          />
+          <Map
+            venues={this.state.venueList}
+            handleClickedMarker={this.handleClickedMarker}
+            clickedMarker={this.state.marker}
+          />
         </div>
         <Footer />
       </div>

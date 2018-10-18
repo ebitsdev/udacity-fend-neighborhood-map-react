@@ -7,6 +7,7 @@ body {
 .venue-list-address, .venue-listing {
   list-style: none;
   text-align: left;
+
 }
 
 .header-container{
@@ -27,6 +28,7 @@ body {
   // To align input field to the center
   text-align: center;
   width: 100% ;
+  padding-top: 5px;
 }
 .search-field {
   width: 92%;
@@ -39,14 +41,20 @@ body {
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
+
 }
-.venuelist{
+#venuelist{
   overflow: scroll;
   display: block;
+  .venue-list-item {
+    padding: 4px !important;
+    
+  }
 }
 .sidebar-wrapper {
   grid-area: sidebar;
   height: 100vh;
+  box-shadow: -2px 0px 3px 1px #aaaaaa;
 }
 
 .footer-container{
@@ -66,10 +74,64 @@ body {
 .main-container{
   display: grid;
   width: 100%;
-  grid-template-columns: 78vw 1fr;
+  grid-template-columns: 84vw 1fr;
   grid-gap: 0.2em;
   grid-template-areas:
     // "header header header header"
     "main main main sidebar"
     "footer footer footer footer";
+    .venue-list-address, .venue-listing { padding: 2px 8px 0 12px;}
+}
+@media screen and (max-width: 1224px){
+  .main-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 74vw 1fr;
+    grid-gap: 0.2em;
+    grid-template-areas:
+      // "header header header header"
+      "main main main sidebar"
+      "footer footer footer footer";
+  }
+  .venue-list-address, .venue-listing {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 960px){
+  .main-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 65vw 1fr;
+    grid-gap: 0.2em;
+    grid-template-areas:
+      // "header header header header"
+      "main main main sidebar"
+      "footer footer footer footer";
+  }
+  .venue-list-address, .venue-listing {
+
+    padding: 0;
+  }
+
+}
+@media only screen and (min-width: 320px) and (max-width: 620px) {
+  .main-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 55vw 1fr;
+    grid-gap: 0.2em;
+    grid-template-areas:
+      // "header header header header"
+      "main main main sidebar"
+      "footer footer footer footer";
+  }
+  .venue-list-address, .venue-listing {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+
+}
+.error-message{
+  font-weight: 600;
+  padding: 2.5rem;
 }
