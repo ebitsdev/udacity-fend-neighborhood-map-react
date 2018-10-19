@@ -139,3 +139,14 @@ body {
   font-weight: 600;
   padding: 2.5rem;
 }
+
+.skipnav {
+  background: transparent;
+  color: #212121;
+  left: 0;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  top: -4.2rem;
+  transition: all 0.2s ease-in-out;
+  z-index: 100;
+}

@@ -4,7 +4,7 @@ import React from 'react';
 // create a component
 const Header = () => {
     return (
-        <div className="header-container">
+        <div aria-label="Application title" tabIndex={-1} className="header-container">
         <h1 aria-label="African grocery store in Silver Spring, MD" className="header-item">
         African Restaurants in Silver Spring, MD
         </h1>

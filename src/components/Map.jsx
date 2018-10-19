@@ -8,21 +8,21 @@ import {
 } from "react-google-maps";
 class Map extends Component {
   render() {
-
     const { venues, clickedMarker } = this.props;
-
     const InitMap = withScriptjs(
       withGoogleMap(props => (
-
         <GoogleMap
           defaultZoom={15}
           defaultCenter={{
             // Silver Spring downtown
-            lat: 38.996052, lng: -77.028183
+            lat: 38.996052,
+            lng: -77.028183
           }}
         >
-          {venues && venues.map(
-            (venue, idx) => (
+          {venues &&
+            venues.map((venue, idx) => (
+              // Get african restaurant places
+
               <Marker
                 position={{
                   lat: venue.location.lat,
@@ -63,21 +63,19 @@ class Map extends Component {
                   </InfoWindow>
                 )}
               </Marker>
-            )
-          )}
+            ))}
         </GoogleMap>
       ))
     );
 
     return (
-
-          <InitMap
-            googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&libraries=places'
-            loadingElement={<div className="map-loading-element"/>}
-            containerElement={<div className="map-container" />}
-            mapElement={<div className="map" />}
-          />
-
+      <InitMap
+      
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&libraries=places"
+        loadingElement={<div className="map-loading-element" />}
+        containerElement={<div className="map-container" tabIndex={-1}/>}
+        mapElement={<div className="map" />}
+      />
     );
   }
 }

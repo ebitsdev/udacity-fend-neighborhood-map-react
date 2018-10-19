@@ -13,9 +13,9 @@ class App extends Component {
     marker: {}
   };
   componentDidMount() {
-    this.getVenues();
+    this.getVenues()
+
   }
-  // Get african restaurant places
 
   getVenues = () => {
     // Foursquare api does not work properly with ``, it only does with '' or ""
@@ -57,10 +57,12 @@ class App extends Component {
   };
 
   render() {
+
     return (
       <div role="application" aria-label="neighborhood map" className="app">
+
         <Header />
-        <div id="map" className="main-container">
+        <div id="map" role="application" aria-label="neighborhood map" className="main-container">
           <Sidebar
             errormessage={this.state.errorMessage}
             venuesAll={this.state.venues}
@@ -68,6 +70,7 @@ class App extends Component {
             clickedMarker={this.state.marker}
             venueListFilter={this.venueListFilter}
           />
+          <a className="skipnav" href="#search-field">Skip to search field</a>
           <Map
             venues={this.state.venueList}
             handleClickedMarker={this.handleClickedMarker}

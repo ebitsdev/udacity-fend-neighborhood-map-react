@@ -16,7 +16,7 @@ class Sidebar extends Component {
   render() {
     const filteredVenues = this.props.venuesAll;
     const searchedValue = this.state.queryV;
-    
+
     const venueListing = filteredVenues && this.filterVenueList(filteredVenues, searchedValue).map((venue, i) => {
       return (
         <li className="venue-list-item" key={venue.id} aria-label={venue.name} tabIndex={0} onClick={() => {this.props.handleClickedMarker(i)}} onKeyPress={() => {this.props.handleClickedMarker(i)}}>
@@ -27,7 +27,7 @@ class Sidebar extends Component {
     return (
       <div className="sidebar-wrapper">
         <div className="search-bar">
-          <input className="search-field"
+          <input id="search-field" className="search-field"
             type="search"
             placeholder="Search for a venue"
             aria-label="Type to look up a venue"

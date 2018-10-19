@@ -12,6 +12,11 @@ This is project is part of the Udacity Nanodegree Scholarship in partnership wit
 
 - Or simply download the compiled version of the project in the build folder under the project root folder.
 
+### Project dependencies
+
+- Google Map API
+- Foursquare API
+
 ## How to contribute to this project
 
 - Make a pull request to make your contributions
