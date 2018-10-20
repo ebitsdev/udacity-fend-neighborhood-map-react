@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import * as utilities from '../utils/utilities';
 import {
   withScriptjs,
   withGoogleMap,
@@ -8,37 +8,15 @@ import {
   InfoWindow
 } from "react-google-maps";
 class Map extends Component {
-  state = {
-    map: null
-  };
-
-  mapLoaded = map => {
-    if (this.state.map !== null) return;
-
-    this.setState({
-      map
-    });
-  };
-
-  mapMoving = () => {
-    console.log(JSON.stringify(this.state.map.getCenter()));
-  };
-  /**Create callback function to interact with the map object */
-
-  zoomChanged = () => {
-    console.log(
-      `The map was moved ${JSON.stringify(this.state.map.getZoom())}`
-    );
-  };
   render() {
     const { venues, clickedMarker } = this.props;
     const InitMap = withScriptjs(
       withGoogleMap(props => (
         // Bind the drag event to the map object
         <GoogleMap
-          onDragStart={this.mapMoving.bind(this)}
+          // onDragStart={this.mapMoving.bind(this)}
           /** To get a reference to the map object */
-          ref={this.mapLoaded.bind(this)}
+          // ref={this.mapLoaded.bind(this)}
           defaultZoom={15}
           defaultCenter={this.props.center}
           defaultOptions={{

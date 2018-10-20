@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./views/Header";
 import Map from "./components/Map";
+import * as utilities from './utils/utilities';
 import Sidebar from "./views/Sidebar";
 import Footer from "./views/Footer";
 import "./App.scss";
@@ -14,7 +15,10 @@ class App extends Component {
   };
   componentDidMount() {
     this.getVenues();
-
+    utilities.getVenuesData();
+    /**
+     * let getVenueData = utilities.getVenuesData();
+     */
   }
 
   getVenues = () => {
