@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -7,16 +8,48 @@ import {
   InfoWindow
 } from "react-google-maps";
 class Map extends Component {
+  state = {
+    map: null
+  };
+
+  mapLoaded = map => {
+    if (this.state.map !== null) return;
+
+    this.setState({
+      map
+    });
+  };
+
+  mapMoving = () => {
+    console.log(JSON.stringify(this.state.map.getCenter()));
+  };
+  /**Create callback function to interact with the map object */
+
+  zoomChanged = () => {
+    console.log(
+      `The map was moved ${JSON.stringify(this.state.map.getZoom())}`
+    );
+  };
   render() {
     const { venues, clickedMarker } = this.props;
     const InitMap = withScriptjs(
       withGoogleMap(props => (
+        // Bind the drag event to the map object
         <GoogleMap
+          onDragStart={this.mapMoving.bind(this)}
+          /** To get a reference to the map object */
+          ref={this.mapLoaded.bind(this)}
           defaultZoom={15}
-          defaultCenter={{
-            // Silver Spring downtown
-            lat: 38.996052,
-            lng: -77.028183
+          defaultCenter={this.props.center}
+          defaultOptions={{
+            streetViewControl: false,
+            scaleControl: false,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            rotateControl: false,
+            fullscreenControl: false,
+            disableDefaultUI: true
           }}
         >
           {venues &&
@@ -70,10 +103,16 @@ class Map extends Component {
 
     return (
       <InitMap
-      
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&libraries=places"
         loadingElement={<div className="map-loading-element" />}
-        containerElement={<div className="map-container" tabIndex={-1}/>}
+        containerElement={
+          <div
+            role="application"
+            aria-hidden="true"
+            className="map-container"
+            tabIndex={-1}
+          />
+        }
         mapElement={<div className="map" />}
       />
     );

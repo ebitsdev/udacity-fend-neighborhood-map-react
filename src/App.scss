@@ -48,16 +48,17 @@ body {
   padding: 12px 20px 12px 40px;
 }
 #venuelist {
-  overflow: scroll;
   display: block;
   .venue-list-item {
     padding: 4px !important;
+    
   }
 }
 .sidebar-wrapper {
   grid-area: sidebar;
   height: 100vh;
   box-shadow: -2px 0px 3px 0px #aaaaaa;
+  overflow: scroll;
 }
 
 .footer-container {
@@ -150,3 +151,4 @@ body {
   transition: all 0.2s ease-in-out;
   z-index: 100;
 }
+/*Style button*/

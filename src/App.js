@@ -13,11 +13,12 @@ class App extends Component {
     marker: {}
   };
   componentDidMount() {
-    this.getVenues()
+    this.getVenues();
 
   }
 
   getVenues = () => {
+
     // Foursquare api does not work properly with ``, it only does with '' or ""
     const url =
       "https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1c8941735&intent=browse&near=Silver+Spring&limit=15&radius=4900&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806";
@@ -31,8 +32,6 @@ class App extends Component {
           venues: data.response.venues,
           venueList: data.response.venues
         });
-        console.log(this.state.venues);
-
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);
@@ -59,10 +58,16 @@ class App extends Component {
   render() {
 
     return (
-      <div role="application" aria-label="neighborhood map" className="app">
 
+      <div className="app">
         <Header />
-        <div id="map" role="application" aria-label="neighborhood map" className="main-container">
+        <div
+          id="map"
+          role="application"
+          aria-hidden="true"
+          aria-label="neighborhood map"
+          className="main-container"
+        >
           <Sidebar
             errormessage={this.state.errorMessage}
             venuesAll={this.state.venues}
@@ -70,8 +75,8 @@ class App extends Component {
             clickedMarker={this.state.marker}
             venueListFilter={this.venueListFilter}
           />
-          <a className="skipnav" href="#search-field">Skip to search field</a>
-          <Map
+          {/* lat: 38.996154, lng: -77.028142 */}
+          <Map center={{lat: 38.996154, lng: -77.028142}} tabIndex={-1}
             venues={this.state.venueList}
             handleClickedMarker={this.handleClickedMarker}
             clickedMarker={this.state.marker}
