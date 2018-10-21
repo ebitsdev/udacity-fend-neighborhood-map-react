@@ -15,7 +15,16 @@ class App extends Component {
   };
   componentDidMount() {
     this.getVenues();
-    utilities.getVenuesData();
+    // Get app data from the utilities
+    let getvData = utilities.getVenuesData();
+    Promise.all([getvData])
+    .then(data => {
+      console.log(data);
+      this.setState({
+        venues: data[0]
+      })
+
+    })
     /**
      * let getVenueData = utilities.getVenuesData();
      */
@@ -33,9 +42,11 @@ class App extends Component {
       .then(data => {
         this.setState({
           // Capture the same data for the venue list and markers identification
-          venues: data.response.venues,
+          // venues: data.response.venues,
           venueList: data.response.venues
         });
+        console.log(this.state.venues);
+
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);

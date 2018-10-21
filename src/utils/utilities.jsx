@@ -78,6 +78,8 @@ export function getVenuesData() {
           // make a local copy of the data
           storeVenuesData(venues).then(res => {
             console.log("Venues data stored");
+            console.log(res);
+
             return resolve(venues);
           });
             // this.setState({
@@ -88,13 +90,13 @@ export function getVenuesData() {
         })
         .catch(error => {
           console.log("There was an error while fetching the data", error);
-          this.setState({
-            errorMessage: (
-              <div className="error-message">
-                <em>There was an error while fetching the data</em>
-              </div>
-            )
-          });
+          // this.setState({
+          //   errorMessage: (
+          //     <div className="error-message">
+          //       <em>There was an error while fetching the data</em>
+          //     </div>
+          //   )
+          // });
         });
     });
   });
