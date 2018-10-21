@@ -91,6 +91,6 @@ export function gMapUrl() {
 export function getGMapImages(venue) {
   return (
     `https://maps.googleapis.com/maps/api/streetview?size=150x150&location=
-    venue.location.lat,venue.location.lng&heading=151.78&pitch=-0.76&key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A`
+    ${venue.location.lat},${venue.location.lng}&heading=151.78&pitch=-0.76&key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A`
   );
 }

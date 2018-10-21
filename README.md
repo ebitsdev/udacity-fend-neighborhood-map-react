@@ -21,4 +21,8 @@ This is project is part of the Udacity Nanodegree Scholarship in partnership wit
 
 - Make a pull request to make your contributions
 
+## Live version of the app
+
+[Live demo of the app](https://eb-africanresto.netlify.com)
+
 Thanks for reading.
