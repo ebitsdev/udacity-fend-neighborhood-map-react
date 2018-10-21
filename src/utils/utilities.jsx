@@ -89,8 +89,8 @@ export function gMapUrl() {
   return "https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&libraries=places";
 }
 export function getGMapImages(venue) {
-  return (
-    `https://maps.googleapis.com/maps/api/streetview?size=150x150&location=
-    ${venue.location.lat},${venue.location.lng}&heading=151.78&pitch=-0.76&key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A`
-  );
+  return `https://maps.googleapis.com/maps/api/streetview?size=150x150&location=
+    ${venue.location.lat},${
+    venue.location.lng
+  }&heading=151.78&pitch=-0.76&key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A`;
 }

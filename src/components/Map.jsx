@@ -12,11 +12,8 @@ class Map extends Component {
     const { venues, clickedMarker } = this.props;
     const InitMap = withScriptjs(
       withGoogleMap(props => (
-        // Bind the drag event to the map object
         <GoogleMap
-          // onDragStart={this.mapMoving.bind(this)}
-          /** To get a reference to the map object */
-          // ref={this.mapLoaded.bind(this)}
+        // Set map default options
           defaultZoom={15}
           defaultCenter={this.props.center}
           defaultOptions={{
@@ -33,7 +30,6 @@ class Map extends Component {
           {venues &&
             venues.map((venue, idx) => (
               // Get african restaurant places
-
               <Marker
                 position={{
                   lat: venue.location.lat,

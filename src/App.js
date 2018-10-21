@@ -20,7 +20,7 @@ class App extends Component {
       .then(data => {
         this.setState({
           venues: data[0],
-          venueList: data[0],
+          venueList: data[0]
         });
       })
       .catch(error => {
