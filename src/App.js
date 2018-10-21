@@ -50,6 +50,7 @@ class App extends Component {
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);
+        if(this.state.venues.length === 0){
         this.setState({
           errorMessage: (
             <div className="error-message">
@@ -57,6 +58,7 @@ class App extends Component {
             </div>
           )
         });
+      }
       });
   };
 
