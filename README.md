@@ -23,6 +23,6 @@ This is project is part of the Udacity Nanodegree Scholarship in partnership wit
 
 ## Live version of the app
 
-[Live demo of the app](https://eb-africanresto.netlify.com)
+[Live demo of the app](https://eb-africanresto.netlify.com/)
 
 Thanks for reading.
