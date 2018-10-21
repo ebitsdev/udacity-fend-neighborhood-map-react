@@ -1,4 +1,4 @@
-export default function startServiceWorker() {
+export default function customServiceWorker() {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/custom_sw.js', {scope: '/'})
       .then(function(reg) {
