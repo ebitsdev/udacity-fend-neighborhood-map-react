@@ -66,8 +66,11 @@ class Map extends Component {
                         <li className="venue-address-item">
                           {venue.location.formattedAddress[1]}
                         </li>
-                        <li className="venue-address-item">
+                        <li className="venue-address-street-view">
                           {venue.location.formattedAddress[2]}
+                        </li>
+                        <li className="venue-address-item">
+                        <img alt={venue.name} src={utilities.getGMapImages(venue)}/>
                         </li>
                       </ul>
                     </div>
