@@ -153,6 +153,16 @@ body {
 }
 /*Style button*/
 .venue-address-street-view{
-  text-align:center;
-  width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+text-align: center;
+margin: 10% 0;
+min-height: 200px;
+align-items: center;
+}
+.venue-address-street-view-item{
+
 }

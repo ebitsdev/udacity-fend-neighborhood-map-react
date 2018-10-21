@@ -66,13 +66,13 @@ class Map extends Component {
                         <li className="venue-address-item">
                           {venue.location.formattedAddress[1]}
                         </li>
-                        <li className="venue-address-street-view">
+                        <li className="venue-address-item">
                           {venue.location.formattedAddress[2]}
                         </li>
-                        <li className="venue-address-item">
-                        <img alt={venue.name} src={utilities.getGMapImages(venue)}/>
-                        </li>
                       </ul>
+                      <div className="venue-address-street-view">
+                      <img className="venue-address-item-street-view" alt={venue.name} src={utilities.getGMapImages(venue)}/>
+                      </div>
                     </div>
                   </InfoWindow>
                 )}
@@ -84,7 +84,7 @@ class Map extends Component {
 
     return (
       <InitMap
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&libraries=places"
+        googleMapURL={utilities.gMapUrl()}
         loadingElement={<div className="map-loading-element" />}
         containerElement={
           <div
