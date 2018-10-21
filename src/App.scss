@@ -7,7 +7,7 @@ body {
 .venue-list-address,
 .venue-listing {
   list-style: none;
-  
+
 }
 
 .header-container {
@@ -153,5 +153,6 @@ body {
 }
 /*Style button*/
 .venue-address-street-view{
-  display: inline-block;
+  text-align:center;
+  width: 100%;
 }
