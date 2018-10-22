@@ -19,9 +19,11 @@ class App extends Component {
     Promise.all([getvData])
       .then(data => {
         this.setState({
-          venues: data[0],
-          venueList: data[0]
+          venues: data[0].sort((a, b) => a.name > b.name ),
+          venueList: data[0].sort((a, b) => a.name > b.name )
         });
+        console.log(this.state.venues);
+
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);
