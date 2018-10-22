@@ -16,6 +16,8 @@ This is project is part of the Udacity Nanodegree Scholarship in partnership wit
 
 - Google Map API
 - Foursquare API
+- react-google-maps modules
+- idb
 
 ## How to contribute to this project
 
