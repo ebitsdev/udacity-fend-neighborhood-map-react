@@ -40,20 +40,6 @@ export function storeVenuesData(venues) {
   });
 }
 
-export function getGMapData() {
-  return new Promise(resolve => {
-    window.resolveGoogleMapsPromise = () => {
-      resolve(window.google);
-      delete window.resolveGoogleMapsPromise;
-    };
-    const script = document.createElement("script");
-    const api_key = "AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A";
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${api_key}&callback=resolveGoogleMapsPromise`;
-    script.async = true;
-    document.body.appendChild(script);
-  });
-}
-
 export function getVenuesData() {
   return new Promise((resolve, reject) => {
     getRestoData()
@@ -86,7 +72,8 @@ export function getVenuesData() {
   });
 }
 export function gMapUrl() {
-  return "https://maps.googleapis.com/maps/api/js?key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A&libraries=places";
+  const api_key = "AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A";
+  return `https://maps.googleapis.com/maps/api/js?key=${api_key}&libraries=places`;
 }
 export function getGMapImages(venue) {
   return `https://maps.googleapis.com/maps/api/streetview?size=150x150&location=

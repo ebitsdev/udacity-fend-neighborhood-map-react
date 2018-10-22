@@ -35,6 +35,9 @@ class App extends Component {
           });
         }
       });
+      window.gm_authFailure = () => {
+     alert('An error occured');
+      }
   }
   venueListFilter = venueList => {
     this.setState({ venueList });
