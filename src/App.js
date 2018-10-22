@@ -22,8 +22,6 @@ class App extends Component {
           venues: data[0].sort((a, b) => a.name > b.name ),
           venueList: data[0].sort((a, b) => a.name > b.name )
         });
-        console.log(this.state.venues);
-
       })
       .catch(error => {
         console.log("There was an error while fetching the data", error);
