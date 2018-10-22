@@ -10,6 +10,10 @@ This is project is part of the Udacity Nanodegree Scholarship in partnership wit
 
 - Run the following command `npm install` or `yarn install` and `npm start` or `yarn stall`. You need to have installed Node.js and npm installed on your local machine.
 
+- To run the full production version of the app, please run `yarn build` or `npm build` from the app root folder in the terminal in linux based systems or at the command prompt on Windows.
+
+- The production version of the app allows to run the app in offline mode when not connected to the Internet.
+
 - Or simply download the compiled version of the project in the build folder under the project root folder.
 
 ### Project dependencies
