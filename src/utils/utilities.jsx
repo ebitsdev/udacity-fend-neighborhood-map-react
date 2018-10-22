@@ -39,7 +39,13 @@ export function storeVenuesData(venues) {
     return tx.complete;
   });
 }
-
+export function handleMapLoadingError (){
+  return (
+    `<div className="error-message">
+    <em>There was an error while fetching the data</em>
+  </div>`
+  );
+}
 export function getVenuesData() {
   return new Promise((resolve, reject) => {
     getRestoData()
@@ -71,8 +77,9 @@ export function getVenuesData() {
       });
   });
 }
+
 export function gMapUrl() {
-  const api_key = "AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A";
+  const api_key = "";
   return `https://maps.googleapis.com/maps/api/js?key=${api_key}&libraries=places`;
 }
 export function getGMapImages(venue) {

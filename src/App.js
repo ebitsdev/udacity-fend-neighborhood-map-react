@@ -36,8 +36,8 @@ class App extends Component {
         }
       });
       window.gm_authFailure = () => {
-     alert('An error occured');
-      }
+        alert("An error occurred while trying to load Google Map");
+      };
   }
   venueListFilter = venueList => {
     this.setState({ venueList });
@@ -67,7 +67,7 @@ class App extends Component {
             clickedMarker={this.state.marker}
             venueListFilter={this.venueListFilter}
           />
-          <Map
+          <Map onError={utilities.handleMapLoadingError()}
             center={{ lat: 38.996154, lng: -77.028142 }}
             tabIndex={-1}
             venues={this.state.venueList}

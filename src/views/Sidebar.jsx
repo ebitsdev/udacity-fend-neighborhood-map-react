@@ -27,10 +27,10 @@ class Sidebar extends Component {
     return (
       <div className="sidebar-wrapper">
         <div className="search-bar">
-          <input id="search-field" className="search-field"
+          <input role="search" id="search-field" className="search-field"
             type="search"
             placeholder="Search for a venue"
-            aria-label="Type to look up a venue"
+            aria-label="Search for a venue"
             value={this.state.queryV}
             onChange={e => this.SearchVenueList(e.target.value)}
           />
