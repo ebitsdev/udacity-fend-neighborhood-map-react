@@ -73,7 +73,7 @@ export function getVenuesData() {
 }
 
 export function gMapUrl() {
-  const api_key = "AIzaSyBzcAT2OqL9kldVDCiShPei3E";
+  const api_key = "AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A";
   return `https://maps.googleapis.com/maps/api/js?key=${api_key}&libraries=places`;
 }
 export function getGMapImages(venue) {

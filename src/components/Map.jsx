@@ -11,7 +11,7 @@ import {
 class Map extends Component {
 
   render() {
-    // Handle connection errors
+    // Handle connection errors while loading google loading Google Maps
     window.gm_authFailure = () => {
       alert('There was an error while fetching Google Maps data, please try again.');
     };
