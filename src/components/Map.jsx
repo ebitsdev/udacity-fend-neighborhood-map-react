@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as utilities from '../utils/utilities';
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -8,7 +9,12 @@ import {
   InfoWindow
 } from "react-google-maps";
 class Map extends Component {
+
   render() {
+    // Handle connection errors
+    window.gm_authFailure = () => {
+      alert('There was an error while fetching Google Maps data, please try again.');
+    };
     const { venues, clickedMarker } = this.props;
     const InitMap = withScriptjs(
       withGoogleMap(props => (
@@ -75,11 +81,13 @@ class Map extends Component {
               </Marker>
             ))}
         </GoogleMap>
+
       ))
     );
 
     return (
       <InitMap
+
         googleMapURL={utilities.gMapUrl()}
         loadingElement={<div className="map-loading-element" />}
         containerElement={
@@ -90,9 +98,10 @@ class Map extends Component {
             tabIndex={-1}
           />
         }
-        mapElement={<div className="map" />}
+        mapElement={<div  className="map" />}
       />
     );
+
   }
 }
 

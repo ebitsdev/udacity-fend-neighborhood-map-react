@@ -4,6 +4,7 @@ import Map from "./components/Map";
 import * as utilities from "./utils/utilities";
 import Sidebar from "./views/Sidebar";
 import Footer from "./views/Footer";
+// import AfricanResto from './components/MapLoader';
 import "./App.scss";
 
 class App extends Component {
@@ -11,8 +12,10 @@ class App extends Component {
     venues: [],
     venueList: [],
     errorMessage: "",
-    marker: {}
+    marker: {},
+    error: null
   };
+
   componentDidMount() {
     // Get app data from the utilities
     let getvData = utilities.getVenuesData();
@@ -35,9 +38,7 @@ class App extends Component {
           });
         }
       });
-      window.gm_authFailure = () => {
-        alert("An error occurred while trying to load Google Map");
-      };
+
   }
   venueListFilter = venueList => {
     this.setState({ venueList });
@@ -48,8 +49,8 @@ class App extends Component {
       marker: clickedMarker
     });
   };
+  render () {
 
-  render() {
     return (
       <div className="app">
         <Header />
@@ -67,7 +68,7 @@ class App extends Component {
             clickedMarker={this.state.marker}
             venueListFilter={this.venueListFilter}
           />
-          <Map onError={utilities.handleMapLoadingError()}
+          <Map
             center={{ lat: 38.996154, lng: -77.028142 }}
             tabIndex={-1}
             venues={this.state.venueList}
