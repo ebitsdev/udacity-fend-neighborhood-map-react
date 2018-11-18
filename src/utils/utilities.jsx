@@ -73,12 +73,12 @@ export function getVenuesData() {
 }
 
 export function gMapUrl() {
-  const api_key = "AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A";
+  const api_key = "AIzaSyDX41FXHwXEWbY4Mm7nsL8U5LRe1eFz5QY";
   return `https://maps.googleapis.com/maps/api/js?key=${api_key}&libraries=places`;
 }
 export function getGMapImages(venue) {
   return `https://maps.googleapis.com/maps/api/streetview?size=150x150&location=
     ${venue.location.lat},${
     venue.location.lng
-  }&heading=151.78&pitch=-0.76&key=AIzaSyBzcAT2OqL9kldVDCiShPei3Ebkjxq8x0A`;
+  }&heading=151.78&pitch=-0.76&key=AIzaSyDX41FXHwXEWbY4Mm7nsL8U5LRe1eFz5QY`;
 }
